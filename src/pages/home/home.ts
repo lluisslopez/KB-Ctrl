@@ -77,10 +77,7 @@ export class Home {
 		});
 		//*/
 	}
-	/*
-	ngOnInit() {
-	}*/
-
+	
 	ionViewDidLoad() {
 		this.platform.ready().then(() => {
 			this.splashScreen.hide();
