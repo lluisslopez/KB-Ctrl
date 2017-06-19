@@ -1,0 +1,33 @@
+<ion-header>
+	<ion-navbar dark color="orange-kb">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>King Burrito : Close Document</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<p>
+		<button ion-button icon-left block color="dark" (click)="prelogin()" ><ion-icon name="cash"></ion-icon>Create Close</button>
+	</p>
+	<div class="div-center" [hidden]="admin && ban"><img class="img-kb" src="assets/img/icon.png"/></div><!-- logo_AIC-blanco -->
+	<ion-list [hidden]="!admin && ban">
+		<ion-card  *ngFor="let item of orders">
+			<ion-item>
+			<h2>{{item['employee']}}</h2>
+			<p>{{item['DATE_CLOSE']}}</p>
+			</ion-item>
+			<ion-row>
+				<ion-col></ion-col>
+				<ion-col center text-center></ion-col>
+				<ion-col center text-center>
+					<button ion-button icon-left clear small (click)="check(item['@unid'] , item.employee)">
+						<ion-icon name="done-all"></ion-icon>
+						<div>Get</div>
+					</button>
+				</ion-col>
+			</ion-row>
+		</ion-card>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,54 @@
+<ion-header>
+	<ion-navbar dark color="orange-kb">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Create Close</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<ion-fab bottom right>
+		<button ion-fab color="orange-kb" (click)="sigin()" [disabled]="!fields.valid"><ion-icon name="cloud-upload"></ion-icon></button>
+	</ion-fab>
+
+	<form  (ngSubmit)="sigin()"  [formGroup]="fields">
+		<p>
+		<ion-list>
+			<ion-item>
+				<ion-label><b> Employee </b></ion-label>
+					<ion-select (ionChange)="Selected($event)" name="employee" formControlName="employee">
+						<ion-option  *ngFor="let prov of employee" value="{{prov['@unid']}}">{{prov.ID}}</ion-option>
+					</ion-select>
+			</ion-item>
+		</ion-list>
+
+		<ion-list  [hidden]="shouldHide">
+			<ion-item>
+				<ion-label fixed><ion-icon name="calendar" item-left></ion-icon>Date</ion-label>
+				<ion-input style="background-color: #edeaea !important;width:100% !important;" type="date"  text-center name="DATE_CLOSE" onfocus="(this.type='date')"  formControlName="DATE_CLOSE"  value="{{DATE_CLOSE}}"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label fixed>Tips Cash</ion-label>
+				<ion-input type="number" step="0.01" placeholder="9,999.99" text-right name="TIP_CASH" formControlName="TIP_CASH"  value="{{TIP_CASH}}"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label fixed>Cash</ion-label>
+				<ion-input type="number" step="0.01" placeholder="9,999.99" text-right name="VENTA_EFECTIVO2" formControlName="VENTA_EFECTIVO2" value="{{VENTA_EFECTIVO2}}"></ion-input>
+
+			</ion-item>
+			<ion-item>
+				<ion-label fixed>Cooler Tem</ion-label>
+				<ion-input type="tel" step="any" placeholder="9,999.99" text-right name="Cooler"   formControlName="Cooler" value="{{Cooler}}"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label fixed>Freezer Tem</ion-label>
+				<ion-input type="tel" step="any" placeholder="9,999.99" text-right name="Freezer"  formControlName="Freezer" value="{{Freezer}}"></ion-input>
+			</ion-item>
+		</ion-list>
+	</form>
+
+</ion-content>

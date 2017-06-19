@@ -1,0 +1,88 @@
+<ion-header>
+	<ion-navbar dark color="orange-kb">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Order</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-fab bottom right>
+		<button ion-fab color="orange-kb" (click)="logForm()" ><ion-icon name="cloud-upload"></ion-icon></button>
+	</ion-fab>
+	<form  (ngSubmit)="logForm()">
+
+		<!--<p>
+			<button ion-button full icon-right type="submit" color="orange-kb">Send Order<ion-icon name="cloud-upload"></ion-icon></button>
+		</p>-->
+		<p>
+		<ion-list>
+			<ion-item>
+				<ion-label><b> Provider </b></ion-label>
+					<ion-select (ionChange)="Selected($event, festId)" [(ngModel)]="fields.provider" [ngModelOptions]="{standalone: true}"> <!-- [(ngModel)]="gaming">-->
+						<ion-option  *ngFor="let prov of providers" value="{{prov['@unid']}}">{{prov.Nombre}}</ion-option>
+					</ion-select>
+			</ion-item>
+		</ion-list>
+
+		<ion-list *ngFor="let item of products" [hidden]="shouldHide">
+			<ion-card *ngFor="let pro of item.Productos;let i = index ; trackBy:trackByIndex">
+				<ion-card-header>
+					<ion-item>
+						<ion-label style="font-size: 1.06rem;"><ion-icon name="checkmark-circle" color="primary"  *ngIf="fieldsIn[i]"></ion-icon>  {{pro}}</ion-label><ion-toggle (ionChange)="toggleDis($event, i)" id="{{i}}"></ion-toggle>
+					</ion-item>
+				</ion-card-header>
+				<ion-card-content >
+					<ion-grid>
+		  				<ion-row>
+		    					<ion-col width-70 class="button-container"><h5 style="font-size: 1rem;" class="padding-text"> {{item.Unidad[i]}} : {{item.Cantidad[i]}}</h5></ion-col>
+							<ion-col width-30>
+								<ion-item>
+									<ion-label>Qty</ion-label>
+									<ion-input type="number"    [(ngModel)]="fields[i]"  [ngModelOptions]="{standalone: true}"  [disabled]="!fieldsIn[i]"></ion-input>
+								</ion-item>
+							</ion-col>
+		  				</ion-row>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+		</ion-list>
+
+		<ion-list *ngFor="let item of products" [hidden]="shouldHideMin">
+			<ion-card *ngFor="let pro of item.Productos;let i = index ; trackBy:trackByIndex">
+				<ion-card-header>
+					<ion-item>
+						<ion-label style="font-size: 1.06rem;">
+							<ion-icon name="checkmark-circle" color="primary"  *ngIf="fieldsIn[i]"></ion-icon>
+							{{pro}}
+						</ion-label>
+						<ion-toggle  style="font-size: 1rem;" (ionChange)="toggleDis($event, i)" id="{{i}}"></ion-toggle>
+					</ion-item>
+				</ion-card-header>
+				<ion-card-content >
+					<ion-grid>
+						<ion-row>
+		    					<ion-col width-70 class="button-container">
+								<p style="font-size: 1rem;">{{item.UnitsReq[i]}}</p>
+								<h5 class="padding-text" style="font-size: 1rem;"> {{item.Unidad[i]}} : {{ fieldsOr[i]}}</h5>
+							</ion-col>
+							<ion-col width-30>
+								<ion-item>
+									<ion-label>Inv</ion-label>
+									<ion-input type="number"    [(ngModel)]="fields[i]"  [ngModelOptions]="{standalone: true}"  [disabled]="!fieldsIn[i]"></ion-input>
+								</ion-item>
+							</ion-col>
+		  				</ion-row>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+		</ion-list>
+
+		</p>
+	</form>
+
+
+	<!--<button ion-button round><ion-icon name="cloud-upload"></ion-icon></button>-->
+</ion-content>

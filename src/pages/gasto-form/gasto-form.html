@@ -1,0 +1,69 @@
+<ion-header>
+	<ion-navbar dark color="orange-kb">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Create Expense</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-fab bottom right>
+		<button ion-fab color="orange-kb" (click)="sigin()" [disabled]="!fields.valid"><ion-icon name="cloud-upload"></ion-icon></button>
+	</ion-fab>
+
+	<form  (ngSubmit)="sigin()"  [formGroup]="fields">
+		<ion-list>
+			<ion-item>
+				<ion-label>Supplier</ion-label>
+					<ion-select name="PROVEEDOR" formControlName="PROVEEDOR">
+						<ion-option  *ngFor="let prov of PROVE_NAME" value="{{prov['Suppliers']}}">{{prov['Suppliers']}}</ion-option>
+					</ion-select>
+			</ion-item>
+
+			<ion-item>
+				<ion-label fixed>Amount</ion-label>
+				<ion-input type="number" step="0.01" min="0"placeholder="9,999.99" text-right  name="PAGOS"  formControlName="PAGOS" ></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label fixed>Tax</ion-label>
+				<ion-input type="number" step="0.01" min="0"placeholder="9,999.99" text-right   name="TAX" formControlName="TAX"  ></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label fixed>Total Payment</ion-label>
+				<ion-input class="computed" type="number" disabled="true" placeholder="9,999.99" text-right  value="{{PAGOS_2}}"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label fixed>No. Invoice</ion-label>
+				<ion-input type="text" placeholder="Bill" text-right name="NO_FACTURA" formControlName="NO_FACTURA"  value="{{NO_FACTURA}}"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label fixed><ion-icon name="calendar" item-left></ion-icon>Payment Date</ion-label>
+				<ion-input type="date"  text-right  name="FECHA_PAG" max="{{maxfecha}}" formControlName="FECHA_PAG"  value="{{FECHA_PAG}}"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label>Payment mode </ion-label>
+				<ion-select (ionChange)="SelectedOut($event)" name="T_PAGO" formControlName="T_PAGO">
+					<ion-option  *ngFor="let prov of T_P" value="{{prov.name}}">{{prov.name}}</ion-option>
+				</ion-select>
+			</ion-item>
+
+			<ion-item [hidden]="hideCheck">
+				<ion-label fixed>No. Check</ion-label>
+				<ion-input type="text" placeholder="No. Check" text-right  name="NO_CHEQUE"  formControlName="NO_CHEQUE" value="{{NO_CHEQUE}}"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label fixed>Notes</ion-label>
+				<ion-textarea type="text" rows="3" placeholder="Enter your comments" text-left name="COMENTA" formControlName="COMENTA"  value="{{COMENTA}}"></ion-textarea>
+			</ion-item>
+
+		</ion-list>
+
+	</form>
+</ion-content>

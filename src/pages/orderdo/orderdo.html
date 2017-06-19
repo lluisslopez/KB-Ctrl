@@ -1,0 +1,46 @@
+<ion-header>
+	<ion-navbar dark color="orange-kb">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Order DO</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-fab bottom right >
+		<button ion-fab color="dark"><ion-icon name="share"></ion-icon></button>
+			<ion-fab-list side="top">
+				<button ion-fab (click)="socialShare('whatsapp')"><ion-icon name="logo-whatsapp"></ion-icon></button>
+				<button ion-fab (click)="socialShare('msj')"><ion-icon name="chatboxes"></ion-icon></button>
+				<!--<button ion-fab (click)="socialShare('Clipboard')"><ion-icon name="clipboard"></ion-icon></button>-->
+			</ion-fab-list>
+	</ion-fab>
+	<!-- -->
+	<ion-item>
+		<ion-label>Share with Quantities</ion-label>
+		<ion-checkbox [(ngModel)]="without"></ion-checkbox>
+	</ion-item>
+	<form  (ngSubmit)="logForm()">
+		<p>
+			<button ion-button full icon-right type="submit" color="orange-kb">Close Order<ion-icon name="cloud-upload"></ion-icon></button>
+		</p>
+		<ion-list *ngFor="let item of products">
+			<ion-card >
+				<ion-card-header>{{nombre}}</ion-card-header>
+					<ion-card-content>
+						<ion-list>
+							<ion-item *ngFor="let pro of item.Productos;let i = index ; trackBy:trackByIndex" [hidden]= "listhide[i]">
+									<ion-label  [hidden]= "listhide[i]">
+										<p><b>{{pro}}</b></p>
+										<p style="font-size: 1.06rem;">{{ item.Cantidad[i] }} :{{ item.Unidad[i] }}</p>
+									</ion-label>
+					  				<ion-checkbox  [hidden]= "listhide[i]" [(ngModel)]="list[i]" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+							</ion-item>
+						</ion-list>
+					</ion-card-content>
+			</ion-card>
+		</ion-list>
+	</form>
+</ion-content>

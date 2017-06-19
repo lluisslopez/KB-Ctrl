@@ -1,0 +1,36 @@
+<ion-menu [content]="content" drag-content="false" id = "menu1">
+	<ion-header>
+		<ion-toolbar color="orange-kb">
+			<ion-title>Menu</ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<ion-content>
+		<ion-list>
+			<button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+				<ion-icon color="orange-kb" name={{p.icon}} item-left></ion-icon>
+					<b>{{p.title}}</b>
+			</button>
+		</ion-list>
+	</ion-content>
+</ion-menu>
+<ion-menu [content]="content" drag-content="false" id = "menu2">
+	<ion-header>
+		<ion-toolbar color="orange-kb">
+			<ion-title>Menu</ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<ion-content>
+		<ion-list>
+			<button ion-item *ngFor="let p of pagesAdmin" (click)="openPage(p)">
+				<ion-icon color = "orange-kb" name={{p.icon}} item-left></ion-icon>
+					<b>{{p.title}}</b>
+			</button>
+			<ion-footer [hidden] = "!hideOut">
+					<button ion-item (click)="misslogin()" menuToggle>
+						<ion-icon color="orange-kb" name="close-circle" item-left></ion-icon><b>LogOut</b>
+					</button>
+			</ion-footer>
+		</ion-list>
+	</ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

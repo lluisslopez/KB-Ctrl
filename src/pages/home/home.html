@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-navbar dark color="orange-kb">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>King Burrito: Orders</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+	<ion-fab  top right>
+		<button ion-fab color="dark" (click)="add_Reg()"><ion-icon name="add"></ion-icon></button>
+	</ion-fab>
+<div class="div-center" [hidden]="admin && ban"><img class="image-kb" src="assets/img/kb.png"/></div><!-- logo_AIC-blanco -->
+
+<ion-list [hidden]="!admin && ban">
+	<ion-card  *ngFor="let item of orders">
+		<ion-item>
+		<h2>{{item['Nombre']}}</h2>
+			<p>{{item['DATE']}}</p>
+		</ion-item>
+		<ion-row>
+			<ion-col>
+			</ion-col>
+			<ion-col center text-center>
+			</ion-col>
+			<ion-col center text-center>
+				<button ion-button icon-left clear small (click)="check(item['@unid'] , item.Nombre)">
+					<ion-icon name="cart"></ion-icon>
+					<div>Do</div>
+				</button>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+</ion-list>
+
+
+</ion-content>

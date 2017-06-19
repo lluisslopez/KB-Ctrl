@@ -1,0 +1,54 @@
+page-login {
+
+}
+
+.carmiddle{
+	align-self: center;
+	text-align: center;
+	background-color: #041c2c;
+}
+
+.image-size{
+	width:60%;
+	height: auto;
+}
+
+.div-center{
+	text-align: -webkit-center;
+}
+.back-content{
+	/*background-color: #041c2c;*/
+}
+
+/*.item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+	color: #000;
+}*/
+
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.div-gral{
+	align-self: center;
+}
+
+.text-input-md-highlight-color{
+	color:#FE330A;
+}
+
+.input-has-focus .label-md[stacked]{
+	color:#FE330A !important;
+	//font-size: 1.5rem;
+}
+
+/*
+.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+    border-bottom-color: #FE330A;
+    box-shadow: inset 0 -1px 0 0 #FE330A;
+}*/
+
+.item-ms .item-input-has-focus .item-inner{
+	border-bottom-color: #FE330A  !important;
+	box-shadow: inset 0 -1px 0 0 #FE330A  !important;
+}

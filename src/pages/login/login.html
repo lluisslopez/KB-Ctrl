@@ -1,0 +1,27 @@
+<ion-content padding>
+	<div class="div-gral">
+		<div class="div-center"><img class="image-size" src="assets/img/icon.png"/></div>
+			<form (ngSubmit)="sigin()" [formGroup]="fields">
+				<ion-list>
+					<ion-item>
+						<ion-label stacked>Username</ion-label>
+						<ion-input   type="text"  name="user" formControlName="user"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-label stacked>Password <!--<ion-icon name="eye" item-left ></ion-icon>--> </ion-label>
+								<ion-input  type="password"  name="password" formControlName="password"></ion-input>
+					</ion-item>
+
+					<ion-item>
+						<ion-label>URL</ion-label>
+							<ion-select  name="url" formControlName="url">
+								<ion-option  value="http://aicmexicana.com/kb/control.nsf">Production</ion-option>
+								<ion-option  value="http://aicdev.com/kb/control.nsf">Development</ion-option>
+							</ion-select>
+					</ion-item>
+					<br>
+					<p><button ion-button block icon-left type="submit" color="black"  [disabled]="!fields.valid"> <ion-icon name="person"></ion-icon> Sign In</button></p>
+				</ion-list>
+			</form>
+	</div>
+</ion-content>
