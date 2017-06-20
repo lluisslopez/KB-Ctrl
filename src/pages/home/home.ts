@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Nav, MenuController, Platform, AlertController } from 'ionic-angular';
 import { Http , Headers, RequestOptions } from '@angular/http';
@@ -77,7 +77,7 @@ export class Home {
 		});
 		//*/
 	}
-	
+
 	ionViewDidLoad() {
 		this.platform.ready().then(() => {
 			this.splashScreen.hide();
