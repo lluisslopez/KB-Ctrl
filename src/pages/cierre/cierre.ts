@@ -7,6 +7,8 @@ import DateFormat from "dateformat";
 import { AuthUser } from '../../providers/auth-user';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
+//import { AlertController } from 'ionic-angular';
+
 @IonicPage()
 @Component({
 	selector: 'page-cierre',
@@ -40,7 +42,7 @@ export class Cierre {
 		this.getInformation( this.user, this.password, this.url);
 		*/
 		///*
-		
+
 		this.sqlite.create({name: 'datareg.db',location: 'default'})
 		.then((db: SQLiteObject) => {
 			db.executeSql("SELECT * FROM reg", {})

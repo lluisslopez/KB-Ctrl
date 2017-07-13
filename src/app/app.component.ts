@@ -65,10 +65,11 @@ export class MyApp {
 			// Here you can do any higher level native things you might need.
 			this.statusBar.styleDefault();
 			//this.splashScreen.hide();
+			//*
 			this.oneSignal.startInit('7925d09a-e64d-404d-8dda-9dc1d4fbffc5', '105975728754');
 			this.oneSignal.inFocusDisplaying(2);
 			this.oneSignal.endInit();
-
+			//*/
 			//Database
 			///*
 			this.sqlite.create({

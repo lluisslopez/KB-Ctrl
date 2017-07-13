@@ -48,7 +48,6 @@ export class Login {
 		this.platform.ready().then(() => {
 			this.splashScreen.hide();
 		});
-
 	}
 	//Login
 	public sigin(){
