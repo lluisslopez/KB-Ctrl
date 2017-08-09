@@ -27,6 +27,7 @@ export class AuthUser {
 				var encr = obj.user + ":" + obj.password;
 				var resp: boolean = false;
 				headers.append('Authorization',"Basic " + btoa(encr));
+				headers.append('Cache-Control' , 'no-cache');
 				let options = new RequestOptions({ headers: headers });
 				let url = obj.url +  "/api/data/collections/name/C_Lista_Pedidos_Val";
 				this.http.get(url , options).map(res => res.json()).subscribe(data => { resp = true; this.isLoggedIn=true; },error => { resp = false;this.isLoggedIn=false; } )

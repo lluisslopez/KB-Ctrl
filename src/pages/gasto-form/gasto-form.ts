@@ -74,6 +74,7 @@ export class GastoForm {
 	getInformation( user , pass , url , view){
 		var headers = new Headers();
 		headers.append('Authorization',"Basic " + btoa( user+":"+ pass));
+		headers.append('Cache-Control' , 'no-cache');
 		let options = new RequestOptions({ headers: headers });
 		let urls =  url  + "/" + view + "?readviewentries&outputformat=json";
 		this.authUser.getorders(urls , options )

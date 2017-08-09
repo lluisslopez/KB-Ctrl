@@ -54,6 +54,7 @@ export class Gasto {
 	getInformation( user , pass , url){
 		var headers = new Headers();
 		headers.append('Authorization',"Basic " + btoa( user+":"+ pass));
+		headers.append('Cache-Control' , 'no-cache');
 		let options = new RequestOptions({ headers: headers });
 		let urls =  this.url  + "/api/data/collections/name/" + "PedidosPenSend";
 		this.authUser.getorders(urls , options )

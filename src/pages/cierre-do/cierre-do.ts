@@ -44,6 +44,7 @@ export class CierreDo {
 	getInformation( user , pass , url, id){
 		var headers = new Headers();
 		headers.append('Authorization',"Basic " + btoa( user+":"+ pass));
+		headers.append('Cache-Control' , 'no-cache');
 		let options = new RequestOptions({ headers: headers });
 		let urls =  url + "/api/data/documents/unid/" + id ;
 		this.authUser.getorders(urls , options )

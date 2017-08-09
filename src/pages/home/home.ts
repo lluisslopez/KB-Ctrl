@@ -42,6 +42,10 @@ export class Home {
 			admins[i] = admins[i].toUpperCase();
 		}
 		let access;
+
+		//this.user = "luis e lopez";
+		//this.password = "password";
+		//this.url = "http://aicdev.com/kb/control.nsf";
 		//this.getInformation( "luis e lopez" , "password" , "http://aicdev.com/kb/control.nsf");
 		///*
 		this.sqlite.create({name: 'datareg.db',location: 'default'})

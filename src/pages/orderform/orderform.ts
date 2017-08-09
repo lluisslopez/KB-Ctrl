@@ -40,7 +40,7 @@ export class Orderform {
 		public nav : Nav,
 		public loadingCtrl : LoadingController,
 		private alertCtrl: AlertController,
-
+		public http: Http,
 	) {
 		this.user = navParams.get('user');
 		this.password = navParams.get('pass');
@@ -54,6 +54,7 @@ export class Orderform {
 	getInformation( user , pass , url){
 		var headers = new Headers();
 		headers.append('Authorization',"Basic " + btoa( user+":"+ pass));
+		headers.append('Cache-Control' , 'no-cache');
 		let options = new RequestOptions({ headers: headers });
 		let urls =  url + "/api/data/collections/name/C_Lista_Pedidos_Val";
 		this.authUser.getorders(urls , options )
@@ -85,19 +86,22 @@ export class Orderform {
 		this.fieldsIn = [];
 		this.nameSelected = "";
 		this.typeSelected = "";
+		console.log(event);
 		this.loadProducts(event);
 	}
 
 	loadProducts(product){
-
+		console.log('Entro');
 		var headers = new Headers();
 		headers.append('Content-Type','application/json');
 		headers.append('Authorization',"Basic " + btoa(this.user+":"+ this.password));
+		headers.append('Cache-Control' , 'no-cache');
 		let options = new RequestOptions({ headers: headers });
-		let urls =  this.url + "/api/data/documents/unid/" + product ;
+		let urls =  this.url + "/api/data/documents/unid/" + product;
 		this.authUser.getorders(urls , options )
 		.map(res => res.json())
 		.subscribe(data => {
+			console.log(data);
 			this.products.push(data);
 			let stringData = JSON.stringify(this.products[0]) ;
 			this.objData = JSON.parse(stringData);
@@ -116,6 +120,7 @@ export class Orderform {
 			this.shouldHide = ( this.objData.Type == "Normal" )  ? false : true ;
 			this.shouldHideMin = ( this.objData.Type != "Normal" )  ? false : true ;
 		});
+		//*/
 	}
 
 	//Unale input in toggle event

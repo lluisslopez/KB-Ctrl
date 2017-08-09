@@ -53,6 +53,7 @@ export class Orderdo {
 	getInformation( user , pass , url){
 		var headers = new Headers();
 		headers.append('Authorization',"Basic " + btoa( user+":"+ pass));
+		headers.append('Cache-Control' , 'no-cache');
 		let options = new RequestOptions({ headers: headers });
 		let urls =  url + "/api/data/documents/unid/" + this.id ;
 
@@ -178,7 +179,7 @@ export class Orderdo {
 						//console.log( entry );
 						let cantidad = prod["Cantidad"][count];
 						let unidad = prod["Unidad"][count];
-						let cadena = (this.without) ? "," + cantidad +" "+ unidad  :  "" ; 
+						let cadena = (this.without) ? "," + cantidad +" "+ unidad  :  "" ;
 						message += "- "+entry + cadena + '\n';
 				}
 				count ++;

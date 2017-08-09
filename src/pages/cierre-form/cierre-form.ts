@@ -79,6 +79,7 @@ export class CierreForm {
 	getInformation( user , pass , url , view){
 		var headers = new Headers();
 		headers.append('Authorization',"Basic " + btoa( user+":"+ pass));
+		headers.append('Cache-Control' , 'no-cache');
 		let options = new RequestOptions({ headers: headers });
 		let urls =  url + "/api/data/collections/name/"+view;
 		this.authUser.getorders(urls , options )
@@ -138,6 +139,7 @@ export class CierreForm {
 						//Compare User and password
 						var headers = new Headers();
 						headers.append('Content-Type','application/json');
+						headers.append('Cache-Control' , 'no-cache');
 						headers.append('Authorization',"Basic " + btoa(this.user+":"+ this.password));
 						let options = new RequestOptions({ headers: headers });
 						let url =  this.url + "/api/data/documents/unid/" + event ;
