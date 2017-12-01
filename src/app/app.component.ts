@@ -44,12 +44,15 @@ export class MyApp {
 		this.pages = [
 			{ title: 'Order',  component: "Home" , icon: 'cart'},
 			{ title: 'Close Document', component: "Cierre" , icon: 'checkmark-circle'},
+			{ title: 'Expenses', component: "Gasto" , icon: 'cash'},
+			{ title: 'Coins', component: "Box" , icon: 'logo-usd'},
 			//{ title: 'Expenses', component: "Home" , icon: 'cash'},
 		];
 		this.pagesAdmin = [
 			{ title: 'Order',  component: "Home" , icon: 'cart'},
 			{ title: 'Close Document', component: "Cierre" , icon: 'checkmark-circle'},
 			{ title: 'Expenses', component: "Gasto" , icon: 'cash'},
+			{ title: 'Coins', component: "Box" , icon: 'logo-usd'},
 		];
 
 
