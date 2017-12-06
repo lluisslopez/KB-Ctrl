@@ -17,35 +17,31 @@
 			<div>
 				<div align-items-right>
 					<div class="titles-head" align="left"><ion-badge color="orange-kb">DEN</ion-badge></div>
-					<!--<div  class="max" align="center"><ion-badge color="orange-kb">REQ</ion-badge></div>
-					<div  class="res" align="center"><ion-badge color="orange-kb">MIN</ion-badge></div>-->
-					<div class="req-head" align="right"><ion-badge color="orange-kb">TOT</ion-badge></div>
 					<div class="inputs-head" align="right"><ion-badge color="orange-kb">EXT</ion-badge></div>
+					<div class="req-head" align="right"><ion-badge color="orange-kb">TOT</ion-badge></div>
+
 				</div>
 			</div>
 
 			<div *ngFor="let item of products" class="principalrow">
 				<div style="width:100% !important;margin-top:10px;" *ngFor="let pro of item.Productos;let i = index ; trackBy:trackByIndex">
-					<!--<div style="width:100% !important;margin-top:10px;">-->
 						<div class="titles" align="left"><b>{{pro}}</b></div>
-						<div class="req"  align="right"><span>{{fieldsCom[i] | currency:'USD':true:'1.2-2'}}</span></div>
+						<div class="btnclear" align="left" (click)="remove(i)">
+							<b class="colordelete">X</b>
+						</div>
 						<div class="inputs" align="right">
 							<input type="number" class="custominput"  [(ngModel)]="fields[i]" [ngModelOptions]="{standalone: true}" placeholder="##.##" (change)=updateVal(i)>
-							<!--
-							<ion-item>
-								<ion-input type="number" [(ngModel)]="fields[i]"  [ngModelOptions]="{standalone: true}" placeholder="##.##"  (change)=updateVal(i) ></ion-input>
-							</ion-item>
-							-->
 						</div>
+						<div class="req"  align="right"><span>{{fieldsCom[i] | currency:'USD':true:'1.2-2'}}</span></div>
 						<hr>
-					<!--</div>-->
+
 				</div>
 			</div>
 
 			<div>
 				<div style="width:100%">
-					<div class="reqFin" align="right"><b style="font-size: 2rem;">{{total | currency:'USD':true:'1.2-2'}}</b></div>
-					<div class="inputs2" align="right"><ion-badge color="orange-kb" >TOTAL</ion-badge></div>
+					<div class="reqFin" align="right"><ion-badge color="orange-kb" >TOTAL</ion-badge></div>
+					<div class="inputs2" align="right"><b style="font-size: 2rem;">{{total | currency:'USD':true:'1.2-2'}}</b></div>
 				</div>
 			</div>
 		</ion-grid>

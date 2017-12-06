@@ -13,6 +13,7 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { AuthUser }from '../providers/auth-user';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Clipboard } from '@ionic-native/clipboard';
+import { CallNumber } from '@ionic-native/call-number';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { Clipboard } from '@ionic-native/clipboard';
 		AuthUser,
 		SocialSharing,
 		Clipboard,
+		CallNumber,
 		{provide: ErrorHandler, useClass: IonicErrorHandler}
 	]
 })

@@ -79,73 +79,71 @@ page-box-form {
 		font-size: 1.6rem;
 		margin-top: 5px !important;
 	}
-	.titles{
-		width: 50% !important;
-		float: left;
-		margin-bottom: 10px;
-		border-bottom: 1px solid #e0e0e0;
-	}
 	.titles-head{
-		width: 50% !important;
+		width: 52% !important;
 		float: left;
 		margin-bottom: 10px;
 	}
-
-	.res{
-		width: 10% !important;
+	.inputs-head{
+		width: 18% !important;
 		float: left;
 		margin-bottom: 10px;
-		border-bottom: 1px solid #e0e0e0;
-	}
-	.req{
-		width: 25% !important;
-		float: left;
-		margin-bottom: 10px;
-		border-bottom: 1px solid #e0e0e0;
 	}
 	.req-head{
-		width: 25% !important;
+		width: 30% !important;
 		float: left;
 		margin-bottom: 10px;
 	}
-	.max{
-		width: 10% !important;
+	/********************/
+	.titles{
+		width: 45% !important;
+		float: left;
+		margin-bottom: 10px;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	.btnclear{
+		width: 7% !important;
 		float: left;
 		margin-bottom: 10px;
 		border-bottom: 1px solid #e0e0e0;
 	}
 	.inputs{
-		width: 25% !important;
+		width: 18% !important;
 		float: left;
 		margin-bottom: 10px;
 		border-bottom: 1px solid #e0e0e0;
 	}
-	.inputs-head{
-		width: 25% !important;
+	.req{
+		width: 30% !important;
 		float: left;
 		margin-bottom: 10px;
-
+		border-bottom: 1px solid #e0e0e0;
 	}
+	/********************/
+	.button-md {
+		height: .9rem !important;
+		font-size: .9rem !important;
+	}
+
 	.inputs2{
-		width: 25% !important;
+		width: 40% !important;
 		float: left;
 		margin-bottom: 10px;
 
 	}
 	.reqFin{
-		width: 75% !important;
+		width: 60% !important;
 		float: left;
 		margin-bottom: 10px;
 
 	}
-	.warning{
-		color: red;
-	}
-	.success{
-		color: green;
-	}
 
 	.badge-md-orange-kb {
-		font-size: 2rem;
+		font-size: 1.8rem;
+	}
+
+	.colordelete{
+		color: red;
+		font-weight: 300;
 	}
 }

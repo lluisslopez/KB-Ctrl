@@ -32,6 +32,8 @@ export class BoxDo {
 	public fieldsFactorMult:any={};
 	public fieldsDif:any={};
 	public fieldsTotal:any={};
+	public fieldsTotalExt:any={};
+	public totalExt =0;
 	public total =0;
 
 	constructor(
@@ -76,10 +78,14 @@ export class BoxDo {
 				this.fieldsFactorMult[count] = this.objData.FactorMult[count];
 				this.fieldsIn[count] = this.objData.FieldsIn[count];
 				this.fieldsDif[count] = this.objData.Dif[count];
+
+				let valor1 = (Number( 	this.fields[count] ) >0 ) ? Number(this.fields[count])  : 0;
+				this.fieldsTotalExt[count] = Number(this.fieldsFactorMult[count]) *  valor1;
 				this.fieldsCom[count] = this.objData.Mul[count];
 				let valor = (Number(this.fieldsDif[count]) >0 ) ? Number(this.fieldsDif[count])  : 0;
 				this.fieldsTotal[count] = Number(this.fieldsFactorMult[count]) *  valor;
 				this.total += this.fieldsTotal[count];
+				this.totalExt += this.fieldsTotalExt[count];
 				count ++;
 			}
 		});

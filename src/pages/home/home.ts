@@ -43,10 +43,12 @@ export class Home {
 		}
 		let access;
 
-		//this.user = "luis e lopez";
-		//this.password = "password";
-		//this.url = "http://aicdev.com/kb/control.nsf";
-		//this.getInformation( "luis e lopez" , "password" , "http://aicdev.com/kb/control.nsf");
+		/*
+		this.user = "luis e lopez";
+		this.password = "password";
+		this.url = "http://aicdev.com/kb/control.nsf";
+		this.getInformation( "luis e lopez" , "password" , "http://aicdev.com/kb/control.nsf");
+		*/
 		///*
 		this.sqlite.create({name: 'datareg.db',location: 'default'})
 		.then((db: SQLiteObject) => {
@@ -58,7 +60,8 @@ export class Home {
 							this.password = data.rows.item(i).password;//"password"
 							this.url = data.rows.item(i).url;//"http://aicdev.com/kb/control.nsf"
 							//this.presentAlert("Msj dentro", data.rows.item(i).username);
-						}//
+						}
+						//*/
 						access = (admins.indexOf(this.user.toUpperCase()) > -1) ? true : false;
 						if (access) {
 							this.menu.enable(false, 'menu1');
@@ -73,6 +76,7 @@ export class Home {
 							this.admin = false;
 							this.ban = true;
 						}
+						///*
 					}
 				})
 			.catch(e => console.log(e));

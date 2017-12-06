@@ -7,6 +7,7 @@ import { AuthUser } from '../../providers/auth-user';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import DateFormat from "dateformat";
 import { Clipboard } from '@ionic-native/clipboard';
+import { CallNumber } from '@ionic-native/call-number';
 
 @IonicPage()
 @Component({
@@ -23,8 +24,10 @@ export class Orderdo {
 	public objData : any = {} ;
 	public list :any = [];
 	public listhide :any = [];
+	public providers:any;
 	loader : any;
 	without= true;
+	public phone:string = "";
 
 	constructor(
 		public navCtrl: NavController,
@@ -36,6 +39,7 @@ export class Orderdo {
 		public loadingCtrl : LoadingController,
 		private socialSharing: SocialSharing,
 		private clipboard: Clipboard,
+		private callNumber: CallNumber
 	)
 		{
 			this.id = navParams.get('id');
@@ -43,11 +47,32 @@ export class Orderdo {
 			this.user = navParams.get('user');
 			this.password = navParams.get('pass');
 			this.url = navParams.get('url');
-			//console.log(this.url);
+			//console.log(this.nombre);
 		}
 
 	ionViewDidLoad() {
 		this.getInformation( this.user, this.password, this.url);
+		this.getPhoneNumber( this.user, this.password, this.url);
+	}
+
+	getPhoneNumber(user , pass , url){
+		var headers = new Headers();
+		headers.append('Authorization',"Basic " + btoa( user+":"+ pass));
+		let options = new RequestOptions({ headers: headers });
+		let urls =  url + "/api/data/collections/name/" + "C_Lista_Pedidos_Val";
+		///*
+		this.authUser.getorders(urls , options )
+		.map(res => res.json())
+		.subscribe(data => {
+			this.providers = data;
+			//console.log(data);
+			for (var key in this.providers) {
+				let phone = this.providers[key]["Phone"];
+				let nombre = this.providers[key]["Nombre"];
+				this.phone = ( nombre  ==  this.nombre) ? phone : this.phone;
+			}
+		});
+		//*/
 	}
 
 	getInformation( user , pass , url){
@@ -72,7 +97,7 @@ export class Orderdo {
 				this.listhide[count] = (this.objData.Pedido[count] === "SI") ? false : true ;
 				count ++;
 			}
-			console.log(this.listhide);
+			//console.log(this.listhide);
 		});
 	}
 
@@ -94,7 +119,17 @@ export class Orderdo {
 			return false;
 		}
 	}
-
+	call(  ){
+		if( this.phone == "" ){
+			let title = "Error";
+			let msj = "You need to set phone number for " + this.nombre + "." ;
+			this.presentAlert(title, msj);
+		}else{
+			this.callNumber.callNumber(this.phone, true)
+			.then(() => console.log('Launched dialer!'))
+			.catch(() => console.log('Error launching dialer'));
+		}
+	}
 	saveDocument(id){
 		let objSave = {
 			//"Buy" : this.objtoArray(this.list , 0),

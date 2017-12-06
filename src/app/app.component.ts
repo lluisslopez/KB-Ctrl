@@ -157,8 +157,8 @@ export class MyApp {
 					this.nav.setRoot(LoginPage).then( data =>{ } );
 				},(error) => {
 
-				});
-		});*/
+		});
+	});*/
 
 
 }

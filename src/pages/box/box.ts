@@ -40,8 +40,9 @@ export class Box {
 		this.user = "luis e lopez";
 		this.password = "password";
 		this.url = "http://aicdev.com/kb/control.nsf";
-		//this.getInformation( this.user, this.password, this.url);
+		this.getInformation( this.user, this.password, this.url);
 		*/
+
 		///*
 
 		this.sqlite.create({name: 'datareg.db',location: 'default'})
@@ -161,7 +162,6 @@ export class Box {
 				this.presentAlert("ERROR" , "Can't delete document.");
 				return false;
 		});
-
 	}
 
 	presentLoading() {

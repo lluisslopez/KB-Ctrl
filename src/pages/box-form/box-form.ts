@@ -114,6 +114,11 @@ export class BoxForm {
 		});
 	}
 
+	remove(indice){
+		this.fields[indice] = "";
+		this.updateVal(indice);
+	}
+
 	save(){
 		this.presentLoading();
 		let result:boolean = false;

@@ -27,6 +27,10 @@
 			<button ion-button full icon-right type="submit" color="orange-kb">Close Order<ion-icon name="cloud-upload"></ion-icon></button>
 		</p>
 		<ion-list *ngFor="let item of products">
+			<ion-card text-center  (click)="call()" >
+				<ion-card-header><ion-icon name="call" color="orange-kb"></ion-icon> CALL TO {{nombre}}</ion-card-header>
+
+			</ion-card >
 			<ion-card >
 				<ion-card-header>{{nombre}}</ion-card-header>
 					<ion-card-content>
