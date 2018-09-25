@@ -1,0 +1,52 @@
+<ion-header>
+	<ion-navbar dark color="orange-kb">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Found Form</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-card>
+		<ion-card-header>
+			<ion-icon name="calendar" item-start></ion-icon>  {{date}}
+		</ion-card-header>
+	</ion-card>
+	<ion-grid>
+		<div>
+			<div align-items-right style="width:100% !important;">
+				<div class="titles-head" align="left"><ion-badge color="orange-kb">DEN</ion-badge></div>
+				<div  class="columna-head" align="center"><ion-badge color="orange-kb">REQ</ion-badge></div>
+				<div  class="columna-head" align="center"><ion-badge color="orange-kb">MIN</ion-badge></div>
+				<div class="columna-head" align="center"><ion-badge color="orange-kb">EXT</ion-badge></div>
+				<div class="columna2-head" align="right"><ion-badge color="orange-kb">TOT</ion-badge></div>
+				<div class="columna-head" align="center"><ion-badge color="orange-kb">DIF</ion-badge></div>
+				<div class="columna2-head" align="right"><ion-badge color="orange-kb">TOT</ion-badge></div>
+			</div>
+		</div>
+
+
+		<div *ngFor="let item of products" class="principalrow">
+			<div style="width:100% !important;margin-top:10px!important;" *ngFor="let pro of item.Productos;let i = index ; trackBy:trackByIndex">
+				<div class="titles" align="left"><b class="fonts">{{pro}}</b></div>
+				<div class="columna"  align="center">{{fieldsMax[i]}}</div>
+				<div class="columna"  align="center">{{fieldsReq[i]}}</div>
+				<div class="columna"  align="center">{{fields[i]}}</div>
+				<div class="columna2"  align="right">{{fieldsTotalExt[i] | currency:'USD':true:'1.2-2'}}</div>
+				<div class="columna"  align="center">{{fieldsDif[i]}}</div>
+				<div class="columna2"  align="right">{{fieldsTotal[i] | currency:'USD':true:'1.2-2'}}</div>
+			</div>
+		</div>
+
+
+		<div>
+			<div style="width:100%">
+				<div class="title2" align="right"><ion-badge color="orange-kb" >TOTAL</ion-badge></div>
+				<div class="columna22" align="right"><b style="font-size: 1.6rem;">{{totalExt | currency:'USD':true:'1.2-2'}}</b></div>
+				<div class="columna22" align="right"><b style="font-size: 1.6rem;">{{total | currency:'USD':true:'1.2-2'}}</b></div>
+			</div>
+		</div>
+
+	</ion-grid>
+</ion-content>

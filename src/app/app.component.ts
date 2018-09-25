@@ -12,7 +12,7 @@ import { OneSignal } from '@ionic-native/onesignal';
 export class MyApp {
 	@ViewChild(Nav) nav: Nav;
 
-	rootPage: any;// = 'Home';  // first Page
+	rootPage: any; //= 'Home';  // first Page
 	loader : any;
 	pages: Array<{title: string, component: any, icon: string}>; // Variable de menus
 	pagesAdmin : Array<{title: string, component: any, icon: string}>; // Variable de menus
@@ -46,13 +46,14 @@ export class MyApp {
 			{ title: 'Close Document', component: "Cierre" , icon: 'checkmark-circle'},
 			{ title: 'Expenses', component: "Gasto" , icon: 'cash'},
 			{ title: 'Coins', component: "Box" , icon: 'logo-usd'},
-			//{ title: 'Expenses', component: "Home" , icon: 'cash'},
+			{ title: 'Found', component: "BoxCount" , icon: 'basket'},
 		];
 		this.pagesAdmin = [
 			{ title: 'Order',  component: "Home" , icon: 'cart'},
 			{ title: 'Close Document', component: "Cierre" , icon: 'checkmark-circle'},
 			{ title: 'Expenses', component: "Gasto" , icon: 'cash'},
 			{ title: 'Coins', component: "Box" , icon: 'logo-usd'},
+			{ title: 'Found', component: "BoxCount" , icon: 'basket'},
 		];
 
 

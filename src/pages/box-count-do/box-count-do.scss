@@ -1,0 +1,99 @@
+page-box-count-do {
+	font-size: 10px;
+	.row {
+		margin-top: 10px;
+	}
+
+	.item-md.item-block .item-inner {
+		padding-right: unset;
+		border-bottom: unset;
+	}
+	.item-md.item-input.item-input-has-focus.item-inner,
+	.item-md.item-input.input-has-focus .item-inner{
+		border-bottom-color:unset;
+		box-shadow:unset;
+	}
+	.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+		border-bottom-color: unset;
+		-webkit-box-shadow: unset;
+		box-shadow: unset;
+	}
+
+	.text-input-md {
+		margin: 13px 8px;
+		padding: 0;
+		width: 100%;
+		text-align: right;
+	}
+
+	.item-md {
+		/*font-size:unset;*/
+		font-size:11px;
+	}
+
+	.item-inner {
+		display: unset;
+	}
+
+	.text-input-md {
+		margin: unset;
+	}
+
+	.principalrow{
+		margin-top: 5px;
+	}
+	.titles{
+		width: 25% !important;
+		float: left;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	.titles-head{
+		width: 25% !important;
+		float: left;
+	}
+
+	.title2{
+		width: 47.5% !important;
+		float: left;
+	}
+
+	.columna2{
+		width: 15% !important;
+		float: left;
+		margin-bottom: 13px;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	.columna2-head{
+		width: 15% !important;
+		float: left;
+		margin-bottom: 13px;
+	}
+
+	.columna22{
+		width: 26.25% !important;
+		float: left;
+	}
+
+	.columna{
+		width: 11.25% !important;
+		float: left;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	.columna-head{
+		width: 11.25% !important;
+		float: left;
+
+	}
+
+
+	.warning{
+		color: red;
+	}
+	.success{
+		color: green;
+	}
+	.fonts{
+		font-size:10px !important;
+	}
+
+}
